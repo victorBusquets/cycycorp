@@ -1,0 +1,15 @@
+<div id="contenedor">
+    <h1>Sucursal Bancaria</h1>
+    <span>Id Sucursal: </span>
+    <input type="text" ng-model="sucursalBancaria.idSucursal" ng-disabled="action==='update'"/><br/>
+    <span>Localizacion sucursal: </span>
+    <input type="text" ng-model="sucursalBancaria.localizacion" /><br/>
+    <span>Codigo Sucursal:  </span>
+    <input type="text" ng-model="sucursalBancaria.codigoSucursal" /><br/>
+    <span>Entidad Bancaria:  </span>
+    <input type="text" ng-model="sucursalBancaria.entidadBancaria" /><br/>
+    <span>Nombre Entidad:  </span>
+    <input type="text" ng-model="sucursalBancaria.nombreSucursal" /><br/>
+    <button ng-click="insertSucursal()" ng-show="action==='insert'">Insertar sucursal</button>
+    <button ng-click="updateSucursal()" ng-show="action==='update'">Actualizar sucursal</button>
+</div>

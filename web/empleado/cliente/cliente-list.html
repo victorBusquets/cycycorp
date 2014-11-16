@@ -1,0 +1,30 @@
+<h1>Clientes</h1>
+<div id="tabla">    
+    <table>
+        <thead>
+            <tr>
+                <th>idCliente</th>
+                <th>Usuario</th>
+                <th>Contraseña</th>
+                <th>Nombre</th>
+                <th>DNI</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="cliente in clientes">
+                <td>{{cliente.idCliente}}</td>
+                <td>{{cliente.usuario}}</td>
+                <td>{{cliente.contrasenya}}</td>
+                <td>{{cliente.nombre}}</td>
+                <td>{{cliente.dni}}</td>
+                <td><a ng-href="#/cliente/Delete/{{cliente.idCliente}}">Borrar</a></td>
+                <td><a ng-href="#/cliente/Update/{{cliente.idCliente}}">Editar</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <br/><br/>
+      <a href="#/cliente/Insert" class="boton">Nuevo Cliente</a>
+</div>

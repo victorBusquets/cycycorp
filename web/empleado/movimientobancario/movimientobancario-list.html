@@ -1,0 +1,29 @@
+<h1>Movimientos Bancarios: </h1>
+<div id="tabla">
+    <table>
+        <thead>
+            <tr>
+                <th>idMovimientoBancario</th>
+                <th>CuentaOrigen</th>
+                <th>CuentaDestino</th>
+                <th>Cantidad</th>
+                <th>Motivo</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="movimientoBancario in movimientosBancarios">
+                <td>{{movimientoBancario.idMovimientoBancario}}</td>
+                <td>{{movimientoBancario.cuentaOrigen}}</td>
+                <td>{{movimientoBancario.cuentaDestino}}</td>
+                <td>{{movimientoBancario.cantidad}}</td>
+                <td>{{movimientoBancario.motivo}}</td>
+                <td><a ng-href="#/movimientobancario/Delete/{{movimientoBancario.idMovimientoBancario}}">Borrar</a></td>
+                <td><a ng-href="#/movimientobancario/Update/{{movimientoBancario.idMovimientoBancario}}">Editar</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <br/><br/>
+        <a href="#/movimientobancario/Insert" class="boton">Nueva Movimiento Bancario</a>
+</div>

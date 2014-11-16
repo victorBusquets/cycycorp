@@ -1,0 +1,29 @@
+        <h1>Empleados: </h1>
+        <div id="tabla">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Usuario</th>
+                <th>Contraseña</th>
+                <th>Nombre</th>
+                <th>DNI</th>
+                <th>Sucursal</th>
+                <th></th>
+                <th></th>
+            </tr>
+            
+            <tr ng-repeat="empleado in empleados">
+                <td>{{empleado.idEmpleado}}</td>
+                <td>{{empleado.usuario}}</td>
+                <td>{{empleado.password}}</td>
+                <td>{{empleado.nombre}}</td>
+                <td>{{empleado.dni}}</td>
+                <td>{{empleado.sucursal}}</td>
+                <td><button ng-click="editar(empleado.idEmpleado)">Editar</button></td>
+                <td><button ng-click="borrarRegistro(empleado.idEmpleado)">Borrar</button></td>
+            </tr>
+        </table>
+        
+        <br/>
+        <a href="#/empleado/detalles" class="boton">Nuevo Empleado</a>
+</div>

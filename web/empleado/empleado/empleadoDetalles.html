@@ -1,0 +1,17 @@
+<div id="contenedor">
+    <h1>Entidad Bancaria</h1>
+    <span>Id Empleado: </span>
+    <input type="text" ng-model="empleado.idEmpleado" ng-disabled="editar"/><br/>
+    <span>Usuario: </span>
+    <input type="text" ng-model="empleado.usuario" /><br/>
+    <span>Contraseña:  </span>
+    <input type="text" ng-model="empleado.password" /><br/>
+    <span>Nombre empleado:  </span>
+    <input type="text" ng-model="empleado.nombre" /><br/>
+    <span>DNI:  </span>
+    <input type="text" ng-model="empleado.dni" /><br/>
+    <span>Sucursal:  </span>
+    <input type="text" ng-model="empleado.sucursal" /><br/>
+    <button ng-show="insertar" ng-click="insertarRegistro()">Insertar registro</button>
+    <button ng-show="editar" ng-click="modificarRegistro()">Editar registro</button>
+</div>

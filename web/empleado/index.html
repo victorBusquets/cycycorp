@@ -1,0 +1,79 @@
+<html ng-app="app">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Ruta del path -->
+        <script type="text/javascript" src="../commons/util/path.js.jsp"></script>
+
+        <!--Librerias angular -->
+        <script type="text/javascript" src="../lib/angular/js/angular.js"></script>
+        <script src="../lib/angular/js/angular-route.js" type="text/javascript"></script>
+
+
+        <!--Variable -->
+        <script src="app.js" type="text/javascript"></script>
+
+        <!-- Configuracion de las rutas-->
+        <script src="app-route.js" type="text/javascript"></script>
+        <script src="main/main-route.js" type="text/javascript"></script>
+        <script type="text/javascript" src="sucursalbancaria/sucursalbancariaConfigRoute.js"></script>
+        <script src="entidadbancaria/entidadbancaria-route.js" type="text/javascript"></script>
+        <script src="empleado/empleadoRoute.js" type="text/javascript"></script>
+        <script src="cliente/cliente-route.js" type="text/javascript"></script>
+        <script src="cuenta/cuenta-route.js" type="text/javascript"></script>
+        <script src="movimientobancario/movimientobancario-route.js" type="text/javascript"></script>
+
+        <!--Controladores -->
+        <script src="sucursalbancaria/sucursalbancariaLista.js" type="text/javascript"></script>
+        <script src="sucursalbancaria/sucursalbancariaDetalle.js" type="text/javascript"></script>
+
+        <script src="entidadbancaria/entidadbancaria-lista.js" type="text/javascript"></script>
+        <script src="entidadbancaria/entidadbancaria-detalles.js" type="text/javascript"></script>
+
+        <script src="empleado/empleadoLista.js" type="text/javascript"></script>
+        <script src="empleado/empleadoDetalles.js" type="text/javascript"></script>
+
+        <script src="cliente/cliente-list.js" type="text/javascript"></script>
+        <script src="cliente/cliente-detail.js" type="text/javascript"></script>
+
+        <script src="cuenta/cuenta-list.js" type="text/javascript"></script>
+        <script src="cuenta/cuenta-detail.js" type="text/javascript"></script>
+        
+        <script src="movimientobancario/movimientobancario-list.js" type="text/javascript"></script>
+        <script src="movimientobancario/movimientobancario-detail.js" type="text/javascript"></script>
+        
+        <!--Ficheros variables -->
+        <script src="main/main.js" type="text/javascript"></script>
+        <script src="index.js" type="text/javascript"></script>
+
+        <!--Hojas de estilo-->
+        <link rel="stylesheet" type="text/css" href="../css/estilos.css"/>
+    </head>
+    <body>
+        <div id="cabecera">
+            <img alt="logo" src="../img/logo.png"/>
+            <h1>Bienvenido a nuestra pagina!</h1>   
+        </div>
+        <div id="lateral">
+            <br/>
+            <a href="#/SucursalBancaria/SucursalesBancarias" class="boton">Sucursales Bancarias</a>
+            <br/><br/>
+            <a href="#/entidadbancaria/entidades" class="boton">Entidades Bancarias</a>
+            <br/><br/>
+            <a href="#/cuenta/cuentas" class="boton">Cuentas Bancarias</a>
+            <br/><br/>
+            <a href="#/movimientobancario/MovimientoBancarios" class="boton">Movimientos Bancarios</a>
+            <br/><br/>
+            <a href="#/empleado/empleados" class="boton">Gestion empleados</a>
+            <br/><br/>
+            <a href="#/cliente/clientes" class="boton">Gestion clientes</a>
+            <br/><br/>
+            <a href="#/" class="boton">Volver al home</a>
+        </div>
+        <div id="contenido" ng-view >
+        </div>
+        <div id="footer"><p>CYCYBANK S.A.</p></div>
+    </body>
+</html>

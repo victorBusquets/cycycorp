@@ -1,0 +1,14 @@
+<h1>¿Esta seguro que desea borrar esta sucursal bancaria?</h1>
+<div id="contenedor">
+    <span>Id Sucursal: </span>
+    <input type="text" ng-model="sucursalBancaria.idSucursal" ng-disabled="true"/><br/>
+    <span>Localizacion sucursal: </span>
+    <input type="text" ng-model="sucursalBancaria.localizacion" ng-disabled="true"/><br/>
+    <span>Codigo Sucursal:  </span>
+    <input type="text" ng-model="sucursalBancaria.codigoSucursal" ng-disabled="true"/><br/>
+    <span>Entidad Bancaria:  </span>
+    <input type="text" ng-model="sucursalBancaria.entidadBancaria" ng-disabled="true"/><br/>
+    <span>Nombre Entidad:  </span>
+    <input type="text" ng-model="sucursalBancaria.nombreSucursal" ng-disabled="true"/><br/>
+    <button ng-click="deleteSucursal(sucursalBancaria.idSucursal)" ng-show="true">Borrar Registro</button>
+</div>

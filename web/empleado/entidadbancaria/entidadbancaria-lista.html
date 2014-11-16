@@ -1,0 +1,23 @@
+
+        <h1>Entidades Bancarias: </h1>
+        <div id="tabla">
+        <table>
+            <tr>
+                <th>Id Entidad</th>
+                <th>Nombre Entidad</th>
+                <th>Código Entidad</th>
+                <th></th>
+                <th></th>
+            </tr>
+            
+            <tr ng-repeat="entidadBancaria in entidadesBancarias">
+                <td>{{entidadBancaria.idEntidadBancaria}}</td>
+                <td>{{entidadBancaria.nombre}}</td>
+                <td>{{entidadBancaria.codigoEntidad}}</td>
+                <td><button ng-click="editar(entidadBancaria.idEntidadBancaria)">Editar</button></td>
+                <td><button ng-click="borrarRegistro(entidadBancaria.idEntidadBancaria)">Borrar</button></td>
+            </tr>
+        </table>
+<br/><br/>
+        <a href="#/entidadbancaria/detalles" class="boton">Nueva Entidad Bancaria</a>
+        </div>

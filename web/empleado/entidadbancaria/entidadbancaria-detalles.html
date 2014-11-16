@@ -1,0 +1,12 @@
+<div id="contenedor">
+    <h1>Sucursal Bancaria</h1>
+    <span>Id entidad: </span>
+    <input type="text" ng-model="entidadBancaria.idEntidadBancaria" ng-disabled="editar"/><br/>
+    <span>Nombre entidad: </span>
+    <input type="text" ng-model="entidadBancaria.nombre"/><br/>
+    <span>Codigo entidad:  </span>
+    <input type="text" ng-model="entidadBancaria.codigoEntidad"/><br/>
+    
+<button ng-show="insertar" ng-click="insertarRegistro()">Insertar registro</button>
+<button ng-show="editar" ng-click="modificarRegistro()">Editar registro</button>
+</div>
