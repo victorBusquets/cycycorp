@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class MovimientoBancarioDAOImplJDBC implements MovimientoBancarioDAO {
     @Autowired
     ConnectionFactory connectionFactory;
-    MovimientoBancario movimientoBancario;
     
     @Override
     public MovimientoBancario get(Integer id) {
@@ -33,15 +32,15 @@ public class MovimientoBancarioDAOImplJDBC implements MovimientoBancarioDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
             
-            movimientoBancario = new MovimientoBancario(resultSet.getInt("idMovimientoBancario"), resultSet.getInt("CuentaOrigen"), resultSet.getInt("CuentaDestino"), resultSet.getDouble("cantidad"), resultSet.getString("motivo"));
-            
+            MovimientoBancario movimientoBancario = new MovimientoBancario(resultSet.getInt("idMovimientoBancario"), resultSet.getInt("CuentaOrigen"), resultSet.getInt("CuentaDestino"), resultSet.getDouble("cantidad"), resultSet.getString("motivo"));
+            return movimientoBancario;
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         } finally {
             connectionFactory.close(connection);
         }
         
-        return movimientoBancario;
+        
     }
 
     @Override

@@ -20,11 +20,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- *
- * @author Oliver
- */
-
 
 @Controller
 public class ClienteController {
@@ -42,7 +37,6 @@ public class ClienteController {
             Cliente cliente = clienteDao.get(idCliente); //creo variable para pasarla abajo
             httpServletResponse.setContentType("application/json; charset=UTF-8");
             httpServletResponse.setStatus(HttpServletResponse.SC_OK);
-
             String json = jsonConvert.toJson(cliente);
 
             httpServletResponse.getWriter().println(json);
@@ -50,12 +44,6 @@ public class ClienteController {
         } catch (IOException ex) {
             httpServletResponse.setContentType("text/plain; charset=UTF-8");
             httpServletResponse.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            try {
-                ex.printStackTrace(httpServletResponse.getWriter());
-            } catch (IOException ex1) {
-
-                
-            }
         }
     }
 

@@ -1,4 +1,4 @@
-<h1>Cuentas Bancarias</h1>
+<h2>Cuentas Bancarias</h2>
 <div id="tabla">
     <table>
         <thead>
@@ -17,11 +17,11 @@
                 <td>{{cuenta.cliente}}</td>
                 <td>{{cuenta.saldo}}</td>
                 <td>{{cuenta.sucursalBancaria}}</td>
-                <td><a ng-href="#/cuenta/Delete/{{cuenta.idCuenta}}">Borrar</a></td>
-                <td><a ng-href="#/cuenta/Update/{{cuenta.idCuenta}}">Editar</a></td>
+                <td><a ng-href="#/cuenta/update/{{cuenta.idCuenta}}">Editar</a></td>
+                <td><a ng-href="#/cuenta/delete/{{cuenta.idCuenta}}">Borrar</a></td>
             </tr>
         </tbody>
     </table>
-    <br/><br/>
-    <a href="#/cuenta/Insert" class="boton">Nueva cuenta bancaria</a>
+    <br/>
+    <a href="#/cuenta/insert" class="boton">Nueva Cuenta Bancaria</a>
 </div>

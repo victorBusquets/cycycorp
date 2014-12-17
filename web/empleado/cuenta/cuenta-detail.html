@@ -1,12 +1,12 @@
 <div id="contenedor">
-    <h1>Cuenta Bancaria</h1>
-    <span>Id cuenta:  </span>
-    <input ng-disabled="action === 'delete' || action === 'update'" type="text" ng-model="cuenta.idCuenta"/></br>
-    <span>Cliente:  </span>
+    <h2>Cuenta Bancaria</h2>
+    <span ng-show="action==='update'||action==='delete'" class="col-sm-3">Id cuenta:  </span>
+    <input ng-show="action==='update'||action==='delete'" ng-disabled="action === 'delete' || action === 'update'" type="text" ng-model="cuenta.idCuenta"/></br>
+    <span class="col-sm-3">Cliente:  </span>
     <input ng-disabled="action === 'delete'" type="text" ng-model="cuenta.cliente"/><br>
-    <span>Saldo:  </span>
+    <span class="col-sm-3">Saldo:  </span>
     <input ng-disabled="action === 'delete'" type="text" ng-model="cuenta.saldo"/><br>
-    <span>Sucursal bancaria:  </span>
+    <span class="col-sm-3">Sucursal:  </span>
     <input ng-disabled="action === 'delete'" type="text" ng-model="cuenta.sucursalBancaria"/><br>
     <br/>
     <button ng-show="action === 'delete'" ng-click="deleteCuenta(cuenta.idCuenta)">Borrar</button>

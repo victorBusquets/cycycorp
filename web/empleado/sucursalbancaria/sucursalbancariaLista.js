@@ -1,4 +1,4 @@
- app.controller("SucursalbancariaListaController", ["$scope", "$http", function($scope, $http){
+ app.controller("SucursalbancariaListaController", ["$location","$scope", "$http", function($location,$scope, $http){
         $scope.findAll = function() {
             $http({
                 method: "GET",
@@ -6,7 +6,7 @@
             }).success(function(data, status, headers, config) {
                 $scope.sucursalesBancarias = data;
                 }).error(function(data, status, headers, config) {
-                alert("ERROR!!(" + status + ")");
+                 $location.url("/loginrequired");
             });
         };
         

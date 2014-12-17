@@ -1,4 +1,4 @@
-       <h1>Sucursales Bancarias</h1>
+       <h2>Sucursales Bancarias</h2>
        <div id="tabla">
             <table>
                 <thead>
@@ -20,11 +20,11 @@
                         <td>{{sucursalBancaria.codigoSucursal}}</td>
                         <td>{{sucursalBancaria.entidadBancaria}}</td>
                         <td>{{sucursalBancaria.nombreSucursal}}</td>
-                        <td><a ng-href="#/SucursalBancaria/Delete/{{sucursalBancaria.idSucursal}}">Borrar</a></td>
-                        <td><a ng-href="#/SucursalBancaria/Update/{{sucursalBancaria.idSucursal}}">Editar</a></td>
+                        <td><a ng-href="#/sucursalbancaria/update/{{sucursalBancaria.idSucursal}}">Editar</a></td>
+                        <td><a ng-href="#/sucursalbancaria/delete/{{sucursalBancaria.idSucursal}}">Borrar</a></td>
                     </tr>
                 </tbody>
             </table>
-           <br/><br/>
-          <a href="#/SucursalBancaria/Insert" class="boton">Nueva sucursal bancaria</a>
+           <br/>
+          <a href="#/sucursalbancaria/insert" class="boton">Nueva sucursal bancaria</a>
         </div>

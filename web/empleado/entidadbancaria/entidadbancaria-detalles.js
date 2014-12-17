@@ -7,8 +7,7 @@ app.controller("EntidadBancariaDetallesInsertController", ["$scope", "$http", "$
             codigoEntidad: ""
         };
 
-        $scope.editar = false;
-        $scope.insertar = true;
+        $scope.action = "insert";
 
 
         $scope.insertarRegistro = function () {
@@ -30,8 +29,7 @@ app.controller("EntidadBancariaDetallesInsertController", ["$scope", "$http", "$
 
 app.controller("EntidadBancariaDetallesUpdateController", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
 
-        $scope.editar = true;
-        $scope.insertar = false;
+        $scope.action = "update";
 
         $scope.buscarRegistro = function () {
             $http({

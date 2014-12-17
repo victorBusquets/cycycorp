@@ -1,16 +1,16 @@
 <div id="contenedor">
-    <h1>Entidad Bancaria</h1>
-    <span>Id Empleado: </span>
-    <input type="text" ng-model="empleado.idEmpleado" ng-disabled="editar"/><br/>
-    <span>Usuario: </span>
+    <h2>Empleado</h2>
+    <span ng-show="action==='update'||action==='delete'" class="col-sm-3">Id Empleado: </span>
+    <input ng-show="action==='update'||action==='delete'" type="text" ng-model="empleado.idEmpleado" ng-disabled="editar"/><br/>
+    <span class="col-sm-3">Usuario: </span>
     <input type="text" ng-model="empleado.usuario" /><br/>
-    <span>Contraseña:  </span>
+    <span class="col-sm-3">Contraseña:  </span>
     <input type="text" ng-model="empleado.password" /><br/>
-    <span>Nombre empleado:  </span>
+    <span class="col-sm-3">Nombre:  </span>
     <input type="text" ng-model="empleado.nombre" /><br/>
-    <span>DNI:  </span>
+    <span class="col-sm-3">DNI:  </span>
     <input type="text" ng-model="empleado.dni" /><br/>
-    <span>Sucursal:  </span>
+    <span class="col-sm-3">Sucursal:  </span>
     <input type="text" ng-model="empleado.sucursal" /><br/>
     <button ng-show="insertar" ng-click="insertarRegistro()">Insertar registro</button>
     <button ng-show="editar" ng-click="modificarRegistro()">Editar registro</button>

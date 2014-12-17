@@ -18,7 +18,7 @@
                     url: contextPath + "/api/SucursalBancaria/" + id
                 }).success(function(data, status, headers, config) {
                     alert("Registro borrado");
-                    window.location.assign("#/SucursalBancaria/SucursalesBancarias");
+                    window.location.assign("#/sucursalbancaria/sucursalesbancarias");
                     }).error(function(data, status, headers, config) {
                     alert("ERRRORRRRRRRRRRR!!(" + status + ")");
                 });
@@ -35,7 +35,7 @@
                 url: contextPath + "/api/SucursalBancaria/"
             }).success(function(data, status, headers, config) {
                 alert("Registro insertado");
-                window.location.assign("#/SucursalBancaria/SucursalesBancarias");
+                window.location.assign("#/sucursalbancaria/sucursalesbancarias");
                 }).error(function(data, status, headers, config) {
                 alert("ERRRORRRRRRRRRRR!!(" + status + ")");
             });
@@ -66,7 +66,7 @@
                 url: contextPath + "/api/SucursalBancaria/"
             }).success(function(data, status, headers, config) {
                 alert("Registro actualizado");
-                window.location.assign("#/SucursalBancaria/SucursalesBancarias");
+                window.location.assign("#/sucursalbancaria/sucursalesbancarias");
                 }).error(function(data, status, headers, config) {
                 alert("ERRRORRRRRRRRRRR!!(" + status + ")");
             });

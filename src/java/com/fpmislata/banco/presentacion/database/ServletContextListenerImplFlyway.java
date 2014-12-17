@@ -7,14 +7,14 @@ package com.fpmislata.banco.presentacion.database;
 
 import com.fpmislata.banco.dominio.SucursalBancaria;
 import com.fpmislata.banco.persistencia.SucursalBancariaDAO;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.sql.DataSource;
 import org.flywaydb.core.Flyway;
+import org.flywaydb.core.api.FlywayException;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.web.context.WebApplicationContext;
@@ -36,15 +36,14 @@ public class ServletContextListenerImplFlyway implements ServletContextListener 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         try {
-            //Ahora mismo esto no se usa
             //Codigo para que funcione el autowired
-            //WebApplicationContext webApplicationContext = WebApplicationContextUtils.getRequiredWebApplicationContext(servletContextEvent.getServletContext());
-            //AutowireCapableBeanFactory autowireCapableBeanFactory = webApplicationContext.getAutowireCapableBeanFactory();
-            //autowireCapableBeanFactory.autowireBean(this);
-            //sucursalBancaria = sucursalDAO.get(1);
+            WebApplicationContext webApplicationContext = WebApplicationContextUtils.getRequiredWebApplicationContext(servletContextEvent.getServletContext());
+            AutowireCapableBeanFactory autowireCapableBeanFactory = webApplicationContext.getAutowireCapableBeanFactory();
+            autowireCapableBeanFactory.autowireBean(this);
+            sucursalBancaria = sucursalDAO.get(1);
             
             //Ejecutamos los script de sql
-            /*initialContext = new InitialContext();
+            initialContext = new InitialContext();
             this.dataSource = (DataSource) initialContext.lookup("java:comp/env/jdbc/cycybank");
             initialContext.close();
             
@@ -54,9 +53,9 @@ public class ServletContextListenerImplFlyway implements ServletContextListener 
             flyway.setEncoding("utf-8");
             flyway.migrate();
             
-            */
+            
             System.out.println("*/*/*/*/*/*/*/*/*/ServletContextListener started ");
-        } catch (Exception ex) {
+        } catch (IllegalStateException | BeansException | NamingException | FlywayException ex) {
             throw new RuntimeException(ex);
         }
     }

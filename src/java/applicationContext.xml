@@ -9,14 +9,23 @@
    
     <context:annotation-config/>
     
-    
-  
+    <!-- Implementación actual del ConnectionFactory -->
     <bean class="com.fpmislata.banco.persistencia.impl.jdbc.connection.impl.ConnectionFactoryImplDataSource" />
+    
+    <!-- Implementación actual del JsonConvert -->
     <bean class="com.fpmislata.banco.common.json.impl.JsonConvertImplJackson" />
+    
+    <!-- Implementacion actual de EmpleadoAuthentication y ClienteAuthentication -->
+    <bean class="com.fpmislata.banco.dominio.seguridad.EmpleadoAuthenticationImplDataBase"/>
+    <bean class="com.fpmislata.banco.dominio.seguridad.ClienteAuthenticationImplDataBase"/>
+    
+    <!-- Implementaciónes actuales de la conexion con la BD -->
     <bean class="com.fpmislata.banco.persistencia.impl.jdbc.SucursalBancariaDAOImplJDBC" />
     <bean class="com.fpmislata.banco.persistencia.impl.jdbc.EntidadBancariaDAOImplJDBC" />
     <bean class="com.fpmislata.banco.persistencia.impl.jdbc.EmpleadoDAOImplJDBC" />
     <bean class="com.fpmislata.banco.persistencia.impl.jdbc.ClienteDAOImplJDBC" />
     <bean class="com.fpmislata.banco.persistencia.impl.jdbc.MovimientoBancarioDAOImplJDBC" />
     <bean class="com.fpmislata.banco.persistencia.impl.jdbc.CuentaDAOImplJDBC" />
+    
+    
 </beans>

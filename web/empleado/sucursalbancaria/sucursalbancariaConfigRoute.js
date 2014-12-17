@@ -1,21 +1,21 @@
 app.config(['$routeProvider',function($routeProvider) {
    
-  $routeProvider.when('/SucursalBancaria/SucursalesBancarias', {
+  $routeProvider.when('/sucursalbancaria/sucursalesbancarias', {
     templateUrl: "sucursalbancaria/sucursalbancariaLista.html",
     controller: "SucursalbancariaListaController"
   });
   
-    $routeProvider.when('/SucursalBancaria/Insert', {
+    $routeProvider.when('/sucursalbancaria/insert', {
     templateUrl: "sucursalbancaria/sucursalbancariaDetalle.html",
     controller: "SucursalbancariaDetalleInsertController"
   });
   
-      $routeProvider.when('/SucursalBancaria/Update/:id', {
+      $routeProvider.when('/sucursalbancaria/update/:id', {
     templateUrl: "sucursalbancaria/sucursalbancariaDetalle.html",
     controller: "SucursalbancariaDetalleUpdateController"
   });
   
-      $routeProvider.when('/SucursalBancaria/Delete/:id', {
+      $routeProvider.when('/sucursalbancaria/delete/:id', {
     templateUrl: "sucursalbancaria/sucursalbancariaDelete.html",
     controller: "SucursalbancariaDetalleDeleteController"
   });

@@ -46,15 +46,16 @@ public class CuentaDAOImplJDBC implements CuentaDAO {
     }
 
     @Override
-    public Cuenta insert(Cuenta t) {
+    public Cuenta insert(Cuenta cuenta) {
         Connection connection = connectionFactory.getConnection();
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO cuenta VALUES (null, ?,?,null,?)");
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO cuenta VALUES (?, ?,?,null,?)");
 
-            preparedStatement.setString(1, t.getCliente());
-            preparedStatement.setDouble(2, t.getSaldo());
-            preparedStatement.setInt(3, t.getSucursalBancaria());
+            preparedStatement.setInt(1, cuenta.getIdCuenta());
+            preparedStatement.setString(2, cuenta.getCliente());
+            preparedStatement.setDouble(3, cuenta.getSaldo());
+            preparedStatement.setInt(4, cuenta.getSucursalBancaria());
 
             preparedStatement.executeUpdate();
 
@@ -63,20 +64,20 @@ public class CuentaDAOImplJDBC implements CuentaDAO {
         } finally {
             connectionFactory.close(connection);
         }
-        return t;
+        return cuenta;
     }
 
     @Override
-    public Cuenta update(Cuenta t) {
+    public Cuenta update(Cuenta cuenta) {
         Connection connection = connectionFactory.getConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE cuenta SET cliente= ?, saldo=?, sucursalBancaria=? WHERE idCuenta=?");
 
-            preparedStatement.setInt(4, t.getIdCuenta());
-            preparedStatement.setString(1, t.getCliente());
-            preparedStatement.setDouble(2, t.getSaldo());
-            preparedStatement.setInt(3, t.getSucursalBancaria());
+            preparedStatement.setInt(4, cuenta.getIdCuenta());
+            preparedStatement.setString(1, cuenta.getCliente());
+            preparedStatement.setDouble(2, cuenta.getSaldo());
+            preparedStatement.setInt(3, cuenta.getSucursalBancaria());
 
             preparedStatement.executeUpdate();
 
@@ -86,7 +87,7 @@ public class CuentaDAOImplJDBC implements CuentaDAO {
             connectionFactory.close(connection);
         }
 
-        return t;
+        return cuenta;
     }
 
     @Override
@@ -109,7 +110,7 @@ public class CuentaDAOImplJDBC implements CuentaDAO {
     @Override
     public List<Cuenta> findAll() {
 
-        List<Cuenta> lista = new ArrayList();
+        List<Cuenta> cuentas = new ArrayList();
 
         Connection connection = connectionFactory.getConnection();
 
@@ -125,7 +126,7 @@ public class CuentaDAOImplJDBC implements CuentaDAO {
                 cuenta.setSaldo(resultSet.getInt("saldo"));
                 cuenta.setSucursalBancaria(resultSet.getInt("sucursalBancaria"));
 
-                lista.add(cuenta);
+                cuentas.add(cuenta);
             }
 
         } catch (SQLException ex) {
@@ -134,7 +135,7 @@ public class CuentaDAOImplJDBC implements CuentaDAO {
             connectionFactory.close(connection);
         }
 
-        return lista;
+        return cuentas;
     }
 }
 

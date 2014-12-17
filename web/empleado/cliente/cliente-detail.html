@@ -1,14 +1,14 @@
 <div id="contenedor">
-    <h1>Cliente</h1>
-<span>Id cliente: </span>
-<input ng-disabled="action==='update'||action==='delete'" type="text" ng-model="cliente.idCliente"/><br>
-<span>Usuario: </span>
+    <h2>Cliente</h2>
+<span ng-show="action==='update'||action==='delete'" class="col-sm-3">Id: </span>
+<input ng-show="action==='update'||action==='delete'" ng-disabled="action==='update'||action==='delete'" type="text" ng-model="cliente.idCliente"/><br>
+<span class="col-sm-3">Usuario: </span>
 <input ng-disabled="action==='delete'" type="text" ng-model="cliente.usuario"/><br>
-<span>Contraseña: </span>
+<span class="col-sm-3">Contraseña: </span>
 <input ng-disabled="action==='delete'" type="text" ng-model="cliente.contrasenya"/><br>
-<span>Nombre: </span>
+<span class="col-sm-3">Nombre: </span>
 <input ng-disabled="action==='delete'" type="text" ng-model="cliente.nombre"/><br>
-<span>DNI: </span>
+<span class="col-sm-3">DNI: </span>
 <input ng-disabled="action==='delete'" type="text" ng-model="cliente.dni"/><br>
 <button ng-show="action==='delete'" id="borrar" ng-click="deleteCliente(cliente.idCliente)">Borrar Cliente</button>
 <button ng-show="action==='insert'" id="insertar" ng-click="insertarCliente()">Insertar Cliente</button>

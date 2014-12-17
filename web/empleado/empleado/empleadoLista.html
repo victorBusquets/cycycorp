@@ -1,4 +1,4 @@
-        <h1>Empleados: </h1>
+        <h2>Empleados: </h2>
         <div id="tabla">
         <table>
             <tr>
@@ -19,11 +19,10 @@
                 <td>{{empleado.nombre}}</td>
                 <td>{{empleado.dni}}</td>
                 <td>{{empleado.sucursal}}</td>
-                <td><button ng-click="editar(empleado.idEmpleado)">Editar</button></td>
-                <td><button ng-click="borrarRegistro(empleado.idEmpleado)">Borrar</button></td>
+                <td><a ng-click="editar(empleado.idEmpleado)">Editar</a></td>
+                <td><a ng-click="borrarRegistro(empleado.idEmpleado)">Borrar</a></td>
             </tr>
         </table>
-        
         <br/>
         <a href="#/empleado/detalles" class="boton">Nuevo Empleado</a>
 </div>

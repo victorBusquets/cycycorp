@@ -1,17 +1,17 @@
 <div id="contenedor">
-    <h1>Movimiento Bancario</h1>
-    <span>Id movimiento bancario: </span>
-    <input ng-disabled="action==='update'||action==='delete'" type="text" ng-model="movimientoBancario.idMovimientoBancario"/></br>
-<span>Cuenta origen: </span>
-    <input ng-disabled="action==='delete'" type="text" ng-model="movimientoBancario.cuentaOrigen"/><br>
-<span>Cuenta destino: </span>
-    <input ng-disabled="action==='delete'" type="text" ng-model="movimientoBancario.cuentaDestino"/><br>
-   <span>Cantidad: </span>
-    <input ng-disabled="action==='delete'" type="text" ng-model="movimientoBancario.cantidad"/><br>
-    <span>Motivo: </span>
-    <input ng-disabled="action==='delete'" type="text" ng-model="movimientoBancario.motivo"/><br>
-    
-    <button ng-show="action==='delete'" ng-click="deleteMovimiento(movimientoBancario.idMovimientoBancario)">Borrar Movimiento</button>
-    <button ng-show="action==='insert'" ng-click="insertarMovimiento(movimientoBancario.idMovimientoBancario)">Insertar Movimiento</button>
-    <button ng-show="action==='update'" ng-click="modificarMovimiento()">Modificar Movimiento</button>
+    <h2>Movimiento Bancario</h2>
+    <span ng-show="action==='update'||action==='delete'" class="col-sm-4">Id movimiento: </span>
+    <input ng-show="action==='update'||action==='delete'" ng-disabled="action === 'update' || action === 'delete'" type="text" ng-model="movimientoBancario.idMovimientoBancario"/></br>
+    <span class="col-sm-4">Cuenta origen: </span>
+    <input ng-disabled="action === 'delete'" type="text" ng-model="movimientoBancario.cuentaOrigen"/><br>
+    <span class="col-sm-4">Cuenta destino: </span>
+    <input ng-disabled="action === 'delete'" type="text" ng-model="movimientoBancario.cuentaDestino"/><br>
+    <span class="col-sm-4">Cantidad: </span>
+    <input ng-disabled="action === 'delete'" type="text" ng-model="movimientoBancario.cantidad"/><br>
+    <span class="col-sm-4">Motivo: </span>
+    <input ng-disabled="action === 'delete'" type="text" ng-model="movimientoBancario.motivo"/><br>
+
+    <button ng-show="action === 'delete'" ng-click="deleteMovimiento(movimientoBancario.idMovimientoBancario)">Borrar Movimiento</button>
+    <button ng-show="action === 'insert'" ng-click="insertarMovimiento(movimientoBancario.idMovimientoBancario)">Insertar Movimiento</button>
+    <button ng-show="action === 'update'" ng-click="modificarMovimiento()">Modificar Movimiento</button>
 </div>

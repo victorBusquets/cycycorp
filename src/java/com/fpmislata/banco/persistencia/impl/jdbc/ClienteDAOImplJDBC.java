@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.fpmislata.banco.persistencia.impl.jdbc;
 
 import com.fpmislata.banco.dominio.Cliente;
@@ -14,14 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
-/**
- *
- * @author Oliver
- */
 public class ClienteDAOImplJDBC implements ClienteDAO {
 
     @Autowired
@@ -130,7 +119,7 @@ public class ClienteDAOImplJDBC implements ClienteDAO {
             // execute delete SQL stetement
             preparedStatement3.executeUpdate();
 
-                        connectionFactory.close(connection);
+            connectionFactory.close(connection);
             System.out.println("Conexion creada con exito");
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
@@ -150,7 +139,7 @@ public class ClienteDAOImplJDBC implements ClienteDAO {
                 while (rs.next()) {
                     Integer idCliente = rs.getInt("idCliente");
                     String usuario = rs.getString("usuario");
-                    String contrasenya = rs.getString("contraseña");
+                    String contrasenya = "*******";
                     String nombre = rs.getString("nombre");
                     String dni = rs.getString("dni");
 
@@ -166,4 +155,34 @@ public class ClienteDAOImplJDBC implements ClienteDAO {
         }
 
     }
+
+    @Override
+    public Cliente getByUsuario(String usuario) {
+
+        Cliente cliente = null;
+        Connection connection = null;
+
+        try {
+            connection = connectionFactory.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT idCliente FROM cliente WHERE usuario = ?");
+            preparedStatement.setString(1, usuario);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                int idCliente = resultSet.getInt("idCliente");
+                cliente = this.get(idCliente);
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException ex) {
+                throw new RuntimeException();
+            }
+        }
+
+        return cliente;
+    }
+
 }

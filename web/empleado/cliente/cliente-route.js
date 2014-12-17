@@ -6,16 +6,16 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: "ClienteListController"
         });
         
-        $routeProvider.when('/cliente/Update/:id', {
+        $routeProvider.when('/cliente/update/:id', {
             templateUrl: "cliente/cliente-detail.html",
             controller: "ClienteDetailModificarController"
         });
-        $routeProvider.when('/cliente/Delete/:id', {
+        $routeProvider.when('/cliente/delete/:id', {
             templateUrl: "cliente/cliente-detail.html",
             controller: "ClienteDetailDeleteController"
         });
 
-        $routeProvider.when('/cliente/Insert', {
+        $routeProvider.when('/cliente/insert', {
             templateUrl: "cliente/cliente-detail.html",
             controller: "ClienteDetailInsertController"
         });

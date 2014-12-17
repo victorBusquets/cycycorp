@@ -1,0 +1,117 @@
+<html ng-app="app">
+    <head>
+        <title>CyCy Bank</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Ruta del path -->
+        <script type="text/javascript" src="../commons/util/path.js.jsp"></script>
+
+        <!-- Librerias angular -->
+        <script type="text/javascript" src="../lib/angular/js/angular.js"></script>
+        <script src="../lib/angular/js/angular-route.js" type="text/javascript"></script>
+
+        <!-- Variable -->
+        <script src="app.js" type="text/javascript"></script>
+
+        <!-- Configuracion de las rutas-->
+        <script src="app-route.js" type="text/javascript"></script>
+        <script src="main/main-route.js" type="text/javascript"></script>
+        <script type="text/javascript" src="sucursalbancaria/sucursalbancariaConfigRoute.js"></script>
+        <script src="entidadbancaria/entidadbancaria-route.js" type="text/javascript"></script>
+        <script src="empleado/empleadoRoute.js" type="text/javascript"></script>
+        <script src="cliente/cliente-route.js" type="text/javascript"></script>
+        <script src="cuenta/cuenta-route.js" type="text/javascript"></script>
+        <script src="movimientobancario/movimientobancario-route.js" type="text/javascript"></script>
+
+
+        <!-- Controladores -->
+        <script src="sucursalbancaria/sucursalbancariaLista.js" type="text/javascript"></script>
+        <script src="sucursalbancaria/sucursalbancariaDetalle.js" type="text/javascript"></script>
+
+        <script src="entidadbancaria/entidadbancaria-lista.js" type="text/javascript"></script>
+        <script src="entidadbancaria/entidadbancaria-detalles.js" type="text/javascript"></script>
+
+        <script src="cliente/cliente-list.js" type="text/javascript"></script>
+        <script src="cliente/cliente-detail.js" type="text/javascript"></script>
+
+        <script src="cuenta/cuenta-list.js" type="text/javascript"></script>
+        <script src="cuenta/cuenta-detail.js" type="text/javascript"></script>
+
+        <script src="movimientobancario/movimientobancario-list.js" type="text/javascript"></script>
+        <script src="movimientobancario/movimientobancario-detail.js" type="text/javascript"></script>
+
+        <script src="login/login-route.js" type="text/javascript"></script>
+        <script src="login/login.js" type="text/javascript"></script>
+        
+        
+        <!-- Ficheros variables -->
+        <script src="main/main.js" type="text/javascript"></script>
+        <script src="index.js" type="text/javascript"></script>
+
+        <!-- Hojas de estilo-->
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+    </head>
+
+    <body>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">CyCyBank</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-show="logeado === false">
+                            <a href="../cliente/index.html#/login">Cliente</a>
+                        </li>
+                        <li ng-show="logeado === false">
+                            <a href="../empleado/index.html#/login">Empleado</a>
+                        </li>
+                        <li ng-show="logeado === false">
+                            <a href="../empleado/index.html">Registro</a>
+                        </li>
+                        <li ng-show="logeado === true">
+                            <a href="../cliente/index.html#/logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+
+
+        <div id="content" class="container">
+
+            <div id="lateral" class="col-sm-3">
+                <a class="col-sm-12"><div class="sectiontitle">Secciones</div></a>
+                <a href="#/sucursalbancaria/sucursalesbancarias" class="col-sm-12"><div class="section">Sucursales Bancarias</div></a>
+                <a href="#/entidadbancaria/entidades" class="col-sm-12"><div class="section">Entidades Bancarias</div></a>
+                <a href="#/cuenta/cuentas" class="col-sm-12"><div class="section">Cuentas Bancarias</div></a>
+                <a href="#/movimientobancario/MovimientoBancarios" class="col-sm-12"><div class="section">Movimientos Bancarios</div></a>
+                <a href="#/cliente/clientes" class="col-sm-12"><div class="section">Gestion clientes</div></a>
+                <a href="#/" class="col-sm-12"><div class="section">Volver al home</div></a>
+            </div>
+
+            <div id="contenido"  class="col-sm-9" ng-view>
+            </div>
+
+        </div>
+
+
+        <div id="footer" class="focus">
+            <div class="col-xs-12"><p>CYCYBANK S.A.</p></div>
+        </div>
+    </body>
+</html>

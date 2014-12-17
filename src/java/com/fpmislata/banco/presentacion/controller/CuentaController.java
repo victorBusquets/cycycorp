@@ -66,12 +66,12 @@ public class CuentaController {
     public void findall(HttpServletRequest httpRequest, HttpServletResponse httpServletResponse/*, @PathVariable("idEntidad") int idEntidad*/) throws IOException {
 
         try {
-            List<Cuenta> cuenta = cuentaDAO.findAll();
+            List<Cuenta> cuentas = cuentaDAO.findAll();
 
             httpServletResponse.setContentType("application/json; charset=UTF-8");
             httpServletResponse.setStatus(HttpServletResponse.SC_OK);
 
-            String json = jsonConvert.toJson(cuenta);
+            String json = jsonConvert.toJson(cuentas);
             httpServletResponse.getWriter().println(json);
 
         } catch (Exception ex) {

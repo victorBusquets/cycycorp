@@ -1,8 +1,8 @@
 package com.fpmislata.banco.persistencia.impl.jdbc;
 
 import com.fpmislata.banco.dominio.Empleado;
-import com.fpmislata.banco.persistencia.impl.jdbc.connection.ConnectionFactory;
 import com.fpmislata.banco.persistencia.EmpleadoDAO;
+import com.fpmislata.banco.persistencia.impl.jdbc.connection.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,7 +64,7 @@ public class EmpleadoDAOImplJDBC implements EmpleadoDAO {
             preparedStatement.executeUpdate();
 
             return empleado;
-            
+
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         } finally {
@@ -76,7 +76,6 @@ public class EmpleadoDAOImplJDBC implements EmpleadoDAO {
         }
 
     }
-    
 
     @Override
     public Empleado update(Empleado empleado) {
@@ -92,7 +91,7 @@ public class EmpleadoDAOImplJDBC implements EmpleadoDAO {
             preparedStatement.setString(3, empleado.getNombre());
             preparedStatement.setString(4, empleado.getDni());
             preparedStatement.setString(5, empleado.getSucursal());
-            
+
             preparedStatement.executeUpdate();
 
         } catch (SQLException ex) {
@@ -143,24 +142,54 @@ public class EmpleadoDAOImplJDBC implements EmpleadoDAO {
 
             while (resultSet.next()) {
                 empleados.add(
-                        new Empleado(resultSet.getInt("idEmpleado"), 
-                            resultSet.getString("usuario"),
-                            resultSet.getString("contraseña"), 
-                            resultSet.getString("nombre"),
-                            resultSet.getString("dni"), 
-                            resultSet.getString("sucursal") 
+                        new Empleado(resultSet.getInt("idEmpleado"),
+                                resultSet.getString("usuario"),
+                                "******",
+                                resultSet.getString("nombre"),
+                                resultSet.getString("dni"),
+                                resultSet.getString("sucursal")
                         ));
             }
 
             return empleados;
         } catch (SQLException ex) {
-                throw new RuntimeException(ex);
+            throw new RuntimeException(ex);
         } finally {
             try {
                 connectionFactory.close(connection);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
-        }    }
+        }
+    }
 
+    @Override
+    public Empleado getByUsuario(String usuario) {
+
+        Empleado empleado = null;
+        Connection connection = null;
+        
+        try{
+            connection = connectionFactory.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT idEmpleado FROM empleado WHERE usuario = ?");
+            preparedStatement.setString(1,usuario);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            int idEmpleado = resultSet.getInt("idEmpleado");
+            empleado= this.get(idEmpleado);
+            
+        }catch(SQLException ex){
+            throw new RuntimeException(ex);
+        }
+        finally {
+            try {       
+                connection.close();
+            } catch (SQLException ex) {
+                throw new RuntimeException();
+            }
+        }
+        
+        return empleado;
+    }
 }

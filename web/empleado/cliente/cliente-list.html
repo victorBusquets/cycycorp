@@ -1,4 +1,4 @@
-<h1>Clientes</h1>
+<h2>Clientes</h2>
 <div id="tabla">    
     <table>
         <thead>
@@ -20,11 +20,11 @@
                 <td>{{cliente.contrasenya}}</td>
                 <td>{{cliente.nombre}}</td>
                 <td>{{cliente.dni}}</td>
-                <td><a ng-href="#/cliente/Delete/{{cliente.idCliente}}">Borrar</a></td>
-                <td><a ng-href="#/cliente/Update/{{cliente.idCliente}}">Editar</a></td>
+                <td><a ng-href="#/cliente/update/{{cliente.idCliente}}">Editar</a></td>
+                <td><a ng-href="#/cliente/delete/{{cliente.idCliente}}">Borrar</a></td>
             </tr>
         </tbody>
     </table>
-    <br/><br/>
-      <a href="#/cliente/Insert" class="boton">Nuevo Cliente</a>
+    <br/>
+      <a href="#/cliente/insert" class="boton">Nuevo Cliente</a>
 </div>

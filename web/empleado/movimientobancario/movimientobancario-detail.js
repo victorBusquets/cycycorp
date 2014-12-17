@@ -1,7 +1,7 @@
 app.controller("MovimientoBancarioDetailDeleteController", ["$scope", "$http", "$routeParams", function($scope, $http, $routeParams) {
 
         $scope.action="delete";
-        $scope.buscarMovimiento = function() {
+        $scope.get = function() {
             $http({
                 method: "GET",
                 url: contextPath + "/api/MovimientoBancario/" + $routeParams.id
@@ -13,7 +13,7 @@ app.controller("MovimientoBancarioDetailDeleteController", ["$scope", "$http", "
             });
 
         };
-            $scope.buscarMovimiento();
+            $scope.get();
 
         $scope.deleteMovimiento = function(id) {
             $http({
@@ -33,7 +33,7 @@ app.controller("MovimientoBancarioDetailDeleteController", ["$scope", "$http", "
 
 app.controller("MovimientoBancarioDetailModificarController", ["$scope", "$http", "$routeParams", function($scope, $http, $routeParams) {
         $scope.action="update";
-        $scope.buscarMovimiento = function() {
+        $scope.get = function() {
             $http({
                 method: "GET",
                 url: contextPath + "/api/MovimientoBancario/" + $routeParams.id
@@ -45,7 +45,7 @@ app.controller("MovimientoBancarioDetailModificarController", ["$scope", "$http"
             });
 
         };
-            $scope.buscarMovimiento();
+            $scope.get();
 
         $scope.modificarMovimiento = function() {
             $http({

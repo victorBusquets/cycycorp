@@ -1,14 +1,13 @@
-app.controller("ClienteListController", ["$scope", "$http", function ClientesListController($scope, $http) {
+app.controller("ClienteListController", ["$location","$scope", "$http", function ClientesListController($location,$scope, $http) {
 
     $scope.mostrarTablaCliente = function() {
             $http({
                 method: "GET",
                 url: contextPath + "/api/Clientes/"
-            }).success(function(data, status, headers, config) {
+            }).success(function(data) {
                 $scope.clientes = data;
-               // alert("Se muestra tabla");
-            }).error(function(data, status, headers, config) {
-                alert("Error no se muestra nada"+status);
+            }).error(function() {
+                $location.url("/loginrequired");
             });
         };
         $scope.mostrarTablaCliente();

@@ -1,0 +1,22 @@
+<div class="empty col-sm-12">&nbsp;</div>
+<div class="col-sm-2">&nbsp;</div>
+<div class="panel log panel-default col-sm-6">
+    <div class="panel-heading">
+        <h4>Login Empleado</h4>
+    </div>
+    <div class="panel-body">
+        <form>
+            <div class="login">
+                <span class="col-sm-4">Usuario:</span>
+                <input class="col-sm-7" type="text" name="usuarioEmpleado" ng-model="credencial.usuario"/>
+            </div>
+            <div class="login">
+                <span class="col-sm-4">Password:</span>
+                <input class="col-sm-7" type="password" name="passwordEmpleado" ng-model="credencial.contrasenya"/>
+            </div>
+            <div class="login">
+                <button ng-click="login()" class="btn btn-default" value="entrar_cliente">Entrar</button>
+            </div>
+        </form>
+    </div>
+</div>
